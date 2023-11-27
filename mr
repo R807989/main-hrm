@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    environment {
+        APP_NAME = "hrms-automation"
+        TOMCAT_PATH = "/opt/tomcat"
+        WORKSPACE_PATH = "/var/lib/jenkins/workspace/hrms-automation"
+    }
+
+    stages {
+        stage('Deploy to Tomcat') {
+            steps {
+                script {
+                    def deployDir = "${TOMCAT_PATH}/webapps/${hrms-automation}"
+
+                    // Copy project files to Tomcat webapps
+                    sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
+                }
+            }
+        }
+    }
+}
