@@ -35,9 +35,7 @@ stage("deploy") {
             // Copy project files to Tomcat webapps
             sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
 
-            // Restart Tomcat
-            sh "${TOMCAT_PATH}/bin/shutdown.sh"
-            sh "${TOMCAT_PATH}/bin/startup.sh"
+            }
         }
     }
 }
