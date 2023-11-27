@@ -6,8 +6,7 @@ pipeline {
             steps {
                 // Checkout the code from the Git repository
                 git 'https://github.com/R807989/main-hrm.git'
-            }
-        }
+            
 
         stage('Install Dependencies') {
             steps {
