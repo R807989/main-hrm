@@ -1,5 +1,5 @@
 pipeline {
-agent any
+    agent any
 
     environment {
         APP_NAME = "hrms-automation"
@@ -7,43 +7,28 @@ agent any
         WORKSPACE_PATH = "/var/lib/jenkins/workspace/hrms-automation"
     }
 
+    stages {
+        stage("git integration") {
+            steps {
+                script {
+                    // Use 'checkout' instead of 'git' for better pipeline support
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/R807989/main-hrm.git']]])
+                }
+            }
+        }
 
+        stage("deploy") {
+            steps {
+                script {
+                    def deployDir = "${TOMCAT_PATH}/webapps/${APP_NAME}"
 
+                    // Create the target directory if it doesn't exist
+                    sh "mkdir -p ${deployDir}"
 
-stages{
-stage("git intigration") {
-
-
-steps{
-git 'https://github.com/R807989/main-hrm.git'
-
-}
-
-}
-
-
-}
-
-stage("deploy") {
-    steps {
-        script {
-            def deployDir = "${TOMCAT_PATH}/webapps/hrms-automation"
-
-            // Create the target directory if it doesn't exist
-            sh "mkdir -p ${deployDir}"
-
-            // Copy project files to Tomcat webapps
-            sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
-
+                    // Copy project files to Tomcat webapps
+                    sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
+                }
             }
         }
     }
 }
-
-}
-
-
-
-
-
-
