@@ -4,16 +4,62 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                // Checkout the code from the Git repository
                 git 'https://github.com/R807989/main-hrm.git'
-            
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install project dependencies using npm
+                sh 'npm install'
+            }
+        }
 
         stage('Build') {
             steps {
-                sh 'npm install'
+                // Build the Angular project
                 sh 'npm run build'
-}
-}
             }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                // Run unit tests using Angular CLI and Karma
+                sh 'npm test'
+            }
+        }
+
+        stage('Run E2E Tests') {
+            steps {
+                // Run end-to-end tests using Angular CLI
+                sh 'npm run e2e'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                // Archive build artifacts
+                archiveArtifacts 'dist/**/*'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Add deployment steps here if needed
+            }
+        }
+    }
+
+    post {
+        success {
+            // Actions to be performed on successful build
+            echo 'Build and tests passed!'
+        }
+
+        failure {
+            // Actions to be performed on build failure
+            echo 'Build or tests failed!'
         }
     }
 }
