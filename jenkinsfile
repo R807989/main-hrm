@@ -21,22 +21,15 @@ git 'https://github.com/R807989/main-hrm.git'
 
 }
 
+stage("deploy") {
+    steps {
+        script {
+            def deployDir = "${TOMCAT_PATH}/webapps/hrms-automation"
 
-stage("deploy")
-{
-steps{
-
-step {
-  script {
-                    def deployDir = "${TOMCAT_PATH}/webapps/${hrms-automation}"
-
-                    // Copy project files to Tomcat webapps
-                    sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
-                }
-
-}
-
-}
+            // Copy project files to Tomcat webapps
+            sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
+        }
+    }
 }
 
 
