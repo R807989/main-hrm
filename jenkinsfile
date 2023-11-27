@@ -11,6 +11,27 @@ git 'https://github.com/R807989/main-hrm.git'
 }
 
 }
+
+
+stage("deploy")
+{
+steps{
+
+step{
+  script {
+                    def deployDir = "${TOMCAT_PATH}/webapps/${APP_NAME}"
+
+                    // Copy project files to Tomcat webapps
+                    sh "cp -r ${WORKSPACE_PATH}/* ${deployDir}"
+                }
+
+}
+
+}
+}
+
+
+}
 }
 
 
