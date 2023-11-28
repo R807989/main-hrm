@@ -1,47 +1,7 @@
-pipeline {
-    agent any
+node(){
+stage("intigration code")
 
-    environment {
-        PATH = "$PATH:/bin/node"
-    }
 
-    stages {
-        stage("Cloning Repo") {
-            steps {
-                node(any) {
-                    git 'https://github.com/R807989/main-hrm.git'
-                }
-            }
-        }
 
-        stage("Install Dependencies") {
-            steps {
-           node("Built-In Node"){
 
-           }
-                nodejs("nodejs") {
-                    sh "npm install"
-                }
-            }
-        }
-
-        stage("Run Tests") {
-            steps {
-                nodejs("nodejs") {
-                    sh "npm test"
-                    // Add additional test commands as needed
-                }
-            }
-        }
-
-        stage("Build") {
-            steps {
-                nodejs("nodejs") {
-                    sh "npm run build"
-                    // Add additional build commands as needed
-                }
-            }
-        }
-    }
 }
-
