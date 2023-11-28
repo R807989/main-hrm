@@ -16,8 +16,13 @@ git 'https://github.com/R807989/main-hrm.git'
 
 }
 stage('Install Dependencies') {
+
+
             steps {
-                script {
+dir ('hrms')
+{
+
+}                script {
                     sh 'npm install'
                 
             
