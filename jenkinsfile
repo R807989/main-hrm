@@ -1,19 +1,28 @@
-node(){
-stage("intigration code")
+pipeline {
+    agent any
 
+    stages {
+        stage("Integration Code") {
+            steps {
+                node {
+                    git 'https://github.com/R807989/main-hrm.git'
+                }
+            }
+        }
 
-git 'https://github.com/R807989/main-hrm.git'
+        stage("Install Dependencies") {
+            steps {
+                node {
+                    // Use the NodeJS tool configured in Jenkins
+                    tools {
+                        nodejs "nodeJS"
+                    }
 
-}
-
-stage("install dependcies") {
-node{
-
-
-nodejs("nodejs") {
-sh 'npm install'
-echo "installed"
-}
-}
-
+                    // Install dependencies
+                    sh 'npm install'
+                    echo "Installed"
+                }
+            }
+        }
+    }
 }
