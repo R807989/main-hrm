@@ -7,10 +7,13 @@ git 'https://github.com/R807989/main-hrm.git'
 }
 
 stage("install dependcies") {
+node{
+
+
 nodejs("nodejs") {
 sh 'npm install'
 echo "installed"
 }
-
+}
 
 }
