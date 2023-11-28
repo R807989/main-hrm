@@ -9,7 +9,7 @@ pipeline {
                     def myLabel = 'my-node-label'
 
                     // Run on a specific labeled node
-                    node(myLabel) {
+                    node('Built-In Node') {
                         git 'https://github.com/R807989/main-hrm.git'
                     }
                 }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Define a label for the node
-                    def myLabel = 'my-node-label'
+                    def myLabel = ''Built-In Node''
 
                     // Run on a specific labeled node
                     node(myLabel) {
