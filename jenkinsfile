@@ -19,10 +19,10 @@ stage('Install Dependencies') {
 
 
             steps {
-dir ('hrms')
-{
+dir ('hrms'){
 
-}                script {
+}
+            script {
                     sh 'npm install'
                 
             
