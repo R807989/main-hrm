@@ -27,7 +27,8 @@ stage('Install Dependencies') {
 }
 stage('build'){
 steps {
-                dir('path/to/your/project') {
+                dir('/var/lib/jenkins/workspace')
+ {
                     script {
                         sh 'ng build'
                     }
