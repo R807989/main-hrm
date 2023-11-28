@@ -2,10 +2,10 @@ pipeline {
 agent any 
 
 stages{
-
+stage("intigration"){
 steps{
 
-step{
+
 git 'https://github.com/R807989/main-hrm.git'
 
 }
