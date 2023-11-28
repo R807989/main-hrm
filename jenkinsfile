@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Cloning Repo") {
             steps {
-                node {
+                node(any) {
                     git 'https://github.com/R807989/main-hrm.git'
                 }
             }
