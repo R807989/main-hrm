@@ -2,6 +2,6 @@ node(){
 stage("intigration code")
 
 
-
+git 'https://github.com/R807989/main-hrm.git'
 
 }
