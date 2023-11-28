@@ -19,8 +19,7 @@ stage('Install Dependencies') {
 
 
             steps {
-dir ('/var/lib/jenkins/workspace/s/hrms
-'){
+dir ('/var/lib/jenkins/workspace/s/hrms'){
 
 }
             script {
