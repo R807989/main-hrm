@@ -1,46 +1,6 @@
-pipeline {
-agent any 
-
-stages{
-stage("intigration"){
-steps{
-
-
+node(){
+stage("cloning repo")
 git 'https://github.com/R807989/main-hrm.git'
 
-
-
-
-
- }
-
-}
-stage('Install Dependencies') {
-
-
-            steps {
-dir ("dist/template"){
-
-}
-            script {
-                    sh 'npm install'
-                
-            
-    
-}
-}
-}
-stage('build'){
-steps {
-                dir("dist/template")
- {
-                    script {
-                        sh 'ng build'
-                    }
-                }
-            }
-
-}
-}
 
 }
