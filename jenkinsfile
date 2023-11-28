@@ -10,13 +10,15 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                // Install npm dependencies
-                script {
-                    sh 'npm install'
-                }
-            }
+    steps {
+        // Use the installed Node.js version
+        withNodejs('NodeJS') {
+            // Install npm dependencies
+            sh 'npm install'
         }
+    }
+}
+
 
         // Add other stages as needed
     }
