@@ -1,7 +1,7 @@
 pipeline {
-    agent {
+    agent any 
         // Use a node with Node.js and npm installed
-        label 'nodejs'
+        label 'nodejs' {
     }
 
     stages {
