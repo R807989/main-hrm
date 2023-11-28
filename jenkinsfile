@@ -16,7 +16,7 @@ pipeline {
 
         stage("Install Dependencies") {
             steps {
-           node("any"){
+           node("Built-In Node"){
 
            }
                 nodejs("nodejs") {
