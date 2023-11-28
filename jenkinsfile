@@ -27,7 +27,7 @@ stage('Install Dependencies') {
 }
 stage('build'){
 steps {
-                dir('/var/lib/jenkins/workspace/s/ package-lock.json')
+                dir('hrms')
  {
                     script {
                         sh 'ng build'
