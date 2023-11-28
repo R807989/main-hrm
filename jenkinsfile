@@ -1,27 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        // Use a node with Node.js and npm installed
+        label 'nodejs'
+    }
 
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the Git repository
-                git 'https://github.com/R807989/main-hrm.git'
-            
-
-        stage('Install Dependencies') {
-            steps {
-                // Install project dependencies using npm
-                sh 'npm install'
+       git 'https://github.com/R807989/main-hrm.git'         
+               
             }
         }
-
-        stage('Build') {
-            steps {
-                // Build the Angular project
-                sh 'npm run build'
-            }
-        }
-}
-}
-        }
-}
+      }
