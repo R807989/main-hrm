@@ -5,3 +5,12 @@ stage("intigration code")
 git 'https://github.com/R807989/main-hrm.git'
 
 }
+
+stage("install dependcies") {
+Nodejs("Nodejs") {
+sh "npm install"
+echo "installed"
+}
+
+
+}
