@@ -11,19 +11,21 @@ git 'https://github.com/R807989/main-hrm.git'
 
 
 
-stage("install dependcies"){
 
-steps {
-script {
-sh 'npm install'
  }
+
 }
-}
-}
+stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install'
+                
+            
+    
 }
 }
 }
 
+}
 
-
-
+}
