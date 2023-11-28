@@ -1,12 +1,43 @@
-node(){
-stage("cloning repo")
-git 'https://github.com/R807989/main-hrm.git'
+pipeline {
+    agent any
 
+    environment {
+        PATH = "$PATH:/bin/node"
+    }
 
-}
+    stages {
+        stage("Cloning Repo") {
+            steps {
+                node {
+                    git 'https://github.com/R807989/main-hrm.git'
+                }
+            }
+        }
 
-stage("install dependcies"){
-nodejs("nodejs") {
-sh "npm install"
-}
+        stage("Install Dependencies") {
+            steps {
+                nodejs("nodejs") {
+                    sh "npm install"
+                }
+            }
+        }
+
+        stage("Run Tests") {
+            steps {
+                nodejs("nodejs") {
+                    sh "npm test"
+                    // Add additional test commands as needed
+                }
+            }
+        }
+
+        stage("Build") {
+            steps {
+                nodejs("nodejs") {
+                    sh "npm run build"
+                    // Add additional build commands as needed
+                }
+            }
+        }
+    }
 }
