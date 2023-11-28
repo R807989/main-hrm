@@ -19,7 +19,8 @@ stage('Install Dependencies') {
 
 
             steps {
-dir ('hrms'){
+dir ('/var/lib/jenkins/workspace/s/hrms
+'){
 
 }
             script {
@@ -32,7 +33,7 @@ dir ('hrms'){
 }
 stage('build'){
 steps {
-                dir('hrms')
+                dir('/var/lib/jenkins/workspace/s/hrms')
  {
                     script {
                         sh 'ng build'
