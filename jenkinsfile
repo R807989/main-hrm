@@ -1,6 +1,6 @@
 node(){
     stage('Cloning Git') {
-        
+       git 'https://github.com/R807989/main-hrm.git' 
     }
         
     stage('Install dependencies') {
