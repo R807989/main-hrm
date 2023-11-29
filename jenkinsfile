@@ -1,40 +1,18 @@
 pipeline {
-    agent any
 
-    stages {
-        stage("Integration Code") {
-            steps {
-                script {
-                    // Define a label for the node
-                    def myLabel = 'my-node-label'
+agent any
 
-                    // Run on a specific labeled node
-                    node('Built-In Node') {
-                        git 'https://github.com/R807989/main-hrm.git'
-                    }
-                }
-            }
-        }
+stages{
+stage(){
 
-        stage("Install Dependencies") {
-            steps {
-                script {
-                    // Define a label for the node
-                    def myLabel = ''Built-In Node''
+steps{
 
-                    // Run on a specific labeled node
-                    node(myLabel) {
-                        // Use the NodeJS tool configured in Jenkins
-                        tools {
-                            nodejs "nodeJS"
-                        }
+git 'https://github.com/R807989/main-hrm.git'
 
-                        // Install dependencies
-                        sh 'npm install'
-                        echo "Installed"
-                    }
-                }
-            }
-        }
-    }
+}
+}
+
+}
+
+
 }
