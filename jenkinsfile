@@ -20,10 +20,12 @@ git 'https://github.com/R807989/main-hrm.git'
 }
 stage("install dependcies"){
 steps{
+dir (pro) {
 script {
                    
                     sh 'npm install'
                 }
+}
 
 }
 
