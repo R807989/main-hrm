@@ -5,7 +5,7 @@ agent any
 environment {
         // Set up the Node.js tool
         NODEJS_HOME = tool 'nodeJS'
-        PATH = "${NODEJS_HOME}/bin:${env.PATH}"
+        PATH = "${NODEJS_HOME}/bin:${env.PATH}"a
     }
 
 
@@ -20,7 +20,7 @@ git 'https://github.com/R807989/main-hrm.git'
 }
 stage("install dependcies"){
 steps{
-dir (pro) {
+dir ('pro') {
 script {
                    
                     sh 'npm install'
