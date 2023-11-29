@@ -3,11 +3,4 @@ node(){
        git 'https://github.com/R807989/main-hrm.git' 
     }
         
-    stage('Install dependencies') {
-        nodejs('nodejs') {
-            sh 'npm install'
-            echo "Modules installed"
-        }
-        
-    }
-}
+   }
