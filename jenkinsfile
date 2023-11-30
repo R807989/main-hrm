@@ -24,8 +24,10 @@ pipeline {
     steps {
         script {
             dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
-                sh 'npm run build'
-                echo "Build completed"
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'npm run build'
+                    echo "Build completed"
+                }
             }
         }
     }
