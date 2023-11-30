@@ -34,13 +34,7 @@ pipeline {
 }
 
 
-        stage('Package Build') {
-            steps {
-                script {
-                    // Your package build steps here
-                }
-            }
-        }
+        
 
         }
 }
