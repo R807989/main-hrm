@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "NodeJS 18.13.0" // Use the Node.js tool configured in Jenkins
+    }
+
     stages {
         stage('Cloning Git') {
             steps {
@@ -11,11 +15,9 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    nodejs('nodejs') {
-                        sh 'npm --version'
-                        sh 'npm install'
-                        echo "Modules installed"
-                    }
+                    sh 'npm --version'
+                    sh 'npm install'
+                    echo "Modules installed"
                 }
             }
         }
@@ -34,7 +36,7 @@ pipeline {
         stage('Package Build') {
             steps {
                 script {
-                    sh "tar -zcvf bundle.tar.gz dist/template/"
+                     sh "tar -zcvf bundle.tar.gz dist/template/"
                 }
             }
         }
