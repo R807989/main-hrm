@@ -20,23 +20,23 @@ pipeline {
             }
         }
 
-       stage('Build') {
-    steps {
-        script {
-            dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'npm run build'
-                    echo "Build completed"
+        stage('Build') {
+            steps {
+                script {
+                    dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
+                        sh 'npm run build'
+                        echo "Build completed"
+                    }
+                }
+            }
+        }
+
+        stage('Package Build') {
+            steps {
+                script {
+                    sh "tar -zcvf bundle.tar.gz dist/template/"
                 }
             }
         }
     }
-}
-
-  stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz dist/template/"
-    }
-        
-
-        }
 }
