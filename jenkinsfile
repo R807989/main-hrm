@@ -15,13 +15,14 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
                     sh 'npm --version'
                     sh 'npm install'
                     echo "Modules installed"
                 }
             }
         }
-
+}
         stage('Build') {
             steps {
                 script {
