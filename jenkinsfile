@@ -33,7 +33,7 @@ dir ('/var/lib/jenkins/workspace/hrms-automation/hrms'){
     stage('Stash changes') {
         stash allowEmpty: true, includes: 'bundle.tar.gz', name: 'buildArtifacts'
     }
-}
+
 
 node('awsnode') {
     echo 'Unstash'
