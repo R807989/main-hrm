@@ -20,25 +20,27 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                script {
-                    dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
-                        // Ensure NVM is sourced
-                        sh 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" && [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"'
+       stage('Build') {
+    steps {
+        script {
+            dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
+                // Ensure NVM is sourced
+                sh '''
+                    export NVM_DIR="${HOME}/.nvm"
+                    [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
+                '''
 
-                        // Use Node.js v18.13.0
-                        sh 'nvm use 18.13.0'
+                // Use Node.js v18.13.0
+                sh 'nvm use 18.13.0'
 
-                        // Run the build command
-                        sh 'npm run build'
-                        echo "Build completed"
-                    }
-                }
+                // Run the build command
+                sh 'npm run build'
+                echo "Build completed"
             }
         }
+    }
+}
 
-        stage('Package Build') {
             steps {
                 script {
                     sh "tar -zcvf bundle.tar.gz dist/template/"
