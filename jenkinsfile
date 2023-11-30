@@ -12,11 +12,12 @@ node(){
         
     }
     stage('Build') {
-        nodejs('nodejs') {
+        
+dir ('/var/lib/jenkins/workspace/hrms-automation/hrms'){
             sh 'npm run build'
             echo "Build completed"
         }
-        
+        }
     }
 
     stage('Package Build') {
