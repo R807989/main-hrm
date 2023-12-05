@@ -27,7 +27,8 @@ stage('Build Docker Image') {
                 script {
                     // Build Docker image for AngularJS app
                     dir('hrms') {
-                        def dockerImage = docker.build('hrms-main')
+                        def dockerImage = docker.build('hrms-main', '-f Dockerfile .')
+                }
                         dockerImage.save("hrms-image.tar")
                     }
                 }
