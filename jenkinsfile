@@ -54,5 +54,4 @@ stage("build image") {
 
 
 
-      }
-
+      
