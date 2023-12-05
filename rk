@@ -31,7 +31,7 @@ age('Build Docker Image') {
                 script {
                     // Build Docker image for AngularJS app
                     dir('hrms') {
-                        def dockerImage = docker.build('hrms-main', '-f Dockerfile .')
+                        docker build -t hrms-3 .
                 }
                         dockerImage.save("hrms-image.tar")
                     }
@@ -41,6 +41,10 @@ age('Build Docker Image') {
 }
 
 
+
+
+
+}
 
 
 
