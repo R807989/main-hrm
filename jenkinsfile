@@ -13,5 +13,18 @@ pipeline {
             }
         }
 
+
+
+stage('Build') {
+            steps {
+                script {
+                    // Install dependencies and build AngularJS project
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+
+
         }
 }
