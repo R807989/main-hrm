@@ -26,14 +26,15 @@ stage('Build') {
         }
 }
 
-age('Build Docker Image') {
+stage('Build Docker Image') {
             steps {
                 script {
                     // Build Docker image for AngularJS app
                     dir('hrms') {
                         docker build -t hrms-3 .
-                }
+                
                         dockerImage.save("hrms-image.tar")
+}
                     }
                 }
             }
