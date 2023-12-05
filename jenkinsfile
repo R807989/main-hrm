@@ -1,46 +1,17 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "nodejs" // Use the Node.js tool configured in Jenkins
+    environment {
+        // Define environment variables if needed
+        DOCKER_IMAGE = 'node:14'  // Replace with your desired Node.js version
     }
 
     stages {
-        stage('Cloning Git') {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install dependencies') {
-            steps {
-                script {
-                    dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
-                        sh 'npm --version'
-                        sh 'npm install'
-                        echo "Modules installed"
-                    }
-                }
-            }
         }
-
-        stage('Build') {
-            steps {
-                script {
-                    dir('/var/lib/jenkins/workspace/hrms-automation/hrms') {
-                        sh 'npm run build'
-                        echo "Build completed"
-                    }
-                }
-            }
-        }
-
-        stage('Package Build') {
-            steps {
-                script {
-                     sh "tar -zcvf bundle.tar.gz dist/template/"
-                }
-            }
-        }
-    }
 }
