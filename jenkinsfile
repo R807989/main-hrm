@@ -33,6 +33,22 @@ stage('Build Docker Image') {
                     }
                 }
             }
+
+
+stage("build image") {
+
+  steps {
+                script {
+                    // Build Docker image for AngularJS app
+                    dir('hrms') {
+                        docker build -t hrms-3 .
+                }
+
+}
+}
+}
+
+
         }
 
 
