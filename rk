@@ -8,7 +8,30 @@ pipeline {
             steps {
             git 'https://github.com/R807989/main-hrm.git'
             }
+ 
+
+
+
+}
+
+stage('Build') {
+            steps {
+ dir('hrms') {
+                script {
+                    // Install dependencies and build AngularJS project
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
         }
 }
+
+
+
+}
+
+
+
+
 
 }
