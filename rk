@@ -27,17 +27,23 @@ stage('Build') {
 }
 
 stage('Build Docker Image') {
-            steps {
-                script {
-                    // Build Docker image for AngularJS app
-                    dir('hrms') {
-                        docker build -t hrms-3 .
-                
-                        dockerImage.save("hrms-image.tar")
-}
-                    }
-                }
+    steps {
+        script {
+            // Build Docker image for AngularJS app
+            dir('hrms') {
+                // Set the desired Docker image name
+                def dockerImageName = 'hrms-main'
+
+                // Build the Docker image
+                def dockerImage = docker.build(dockerImageName, '-f Dockerfile .')
+
+                // Save the Docker image as a TAR file (optional)
+                dockerImage.save("hrms-image.tar")
             }
+        }
+    }
+}
+
 
 
 
