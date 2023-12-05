@@ -22,6 +22,20 @@ stage('Build') {
             }
         }
 }
+stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image for AngularJS app
+                    dir('hrms') {
+                        def dockerImage = docker.build('hrms-main')
+                        dockerImage.save("hrms-image.tar")
+                    }
+                }
+            }
+        }
+
+
+
 
         }
 }
