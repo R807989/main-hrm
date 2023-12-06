@@ -38,7 +38,7 @@ stage('Build Docker Image') {
                 def dockerImage = docker.build(dockerImageName, '-f Dockerfile .')
 
                 // Save the Docker image as a TAR file (optional)
-                dockerImage.save("hrms-image.tar")
+            
             }
         }
     }
