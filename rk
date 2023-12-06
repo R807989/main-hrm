@@ -37,7 +37,7 @@ stage('Build Docker Image') {
                 // Build the Docker image
                 def dockerImage = docker.build(dockerImageName, '-f Dockerfile .')
 
-                // Save the Docker image as a TAR file (optional)
+                
             
             }
         }
@@ -48,8 +48,14 @@ stage('Build Docker Image') {
 
 
 
-
-
+stage("deploy") {
+    steps {
+        script {
+            // Run Docker container for deployment
+            docker.image('hrms-main').run('-d -p 8080:3000', 'hr-cont')
+        }
+    }
+}
 
 
 
