@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 # Expose port 3000 to the outside world
-EXPOSE 9876
+EXPOSE 4200
 
 # Define environment variable
 ENV NODE_ENV=production
