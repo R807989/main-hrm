@@ -52,7 +52,7 @@ stage("deploy") {
     steps {
         script {
             // Run Docker container for deployment
-            docker.image('hrms-main').run('-d -p 8081:9876', 'hr-cont')
+            docker.image('hrms-main').run('-d -p 8081:4200', 'hr-cont')
         }
     }
 }
