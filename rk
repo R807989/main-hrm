@@ -32,7 +32,7 @@ stage('Build Docker Image') {
             // Build Docker image for AngularJS app
             dir('hrms') {
                 // Set the desired Docker image name
-                def dockerImageName = 'hrms-main'
+                def dockerImageName = 'hrms-main-1'
 
                 // Build the Docker image
                 def dockerImage = docker.build(dockerImageName, '-f Dockerfile .')
@@ -52,7 +52,7 @@ stage("deploy") {
     steps {
         script {
             // Run Docker container for deployment
-            docker.image('hrms-main').run('-d -p 8081:3000', 'hr-cont')
+            docker.image('hrms-main-1').run('-d -p 8081:4201', 'hr-cont1')
         }
     }
 }
