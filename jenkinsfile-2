@@ -14,9 +14,13 @@ steps{
 }
 }
 
-
+stage("build image")
+steps {
+sh "docker build -t my-image-1 .
 
 }
+}
+
 
 
 
