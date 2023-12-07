@@ -14,9 +14,10 @@ steps{
 }
 }
 
-stage("build image")
-steps {
-sh "docker build -t my-image-1 . \"
+sh "docker build -t my-image-1 . \
+  --build-arg ARG1=value1 \
+  --build-arg ARG2=value2"
+
   
 
 }
