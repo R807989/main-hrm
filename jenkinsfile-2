@@ -68,5 +68,5 @@ sh 'docker build -t hrms-frontend .'
 
 }
 
-
+}
 
