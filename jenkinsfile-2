@@ -4,21 +4,7 @@ agent any
 
 
  stages {
-         stage('Setup') {
-            steps {
-                // Install nvm and set up Node.js
-                script {
-                    sh '''
-                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-                        export NVM_DIR="$HOME/.nvm"
-                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                        [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-                        nvm install v16.13.0
-                        nvm use v16.13.0
-                    '''
-                }
-            }
-        }
+         
 
 
 
@@ -37,21 +23,6 @@ steps{
 
 }
 }
-
-stage('Build') {
-            steps {
- dir('hrms') {
-                script {
-                    // Install dependencies and build AngularJS project
-
-                    sh 'npm install -g @angular/cli@latest'
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-            }
-        }
-}
-
 
 
 
