@@ -26,7 +26,7 @@ agent any
 
 
 
-stages{
+
 stage ("git intigration"){
 
 
@@ -68,5 +68,5 @@ sh 'docker build -t hrms-frontend .'
 
 }
 
-}
+
 }
