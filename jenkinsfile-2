@@ -35,6 +35,16 @@ sh 'docker build -t hrms-frontend .'
   }
 
 }
+
+stage ('Docker Run') {
+steps {
+        sh 'docker run -p 4200:4200 hrms-frontend'        
+    }
+}
+
+
+
+
 }
 
 }
