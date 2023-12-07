@@ -4,16 +4,18 @@ agent any
 
 
  stages {
-        stage('Setup') {
+         stage('Setup') {
             steps {
                 // Install nvm and set up Node.js
                 script {
-                    sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-                    sh 'export NVM_DIR="$HOME/.nvm"'
-                    sh '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"']
-                    sh '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"']
-                    sh 'nvm install v16.13.0'  // Replace with the version required by Angular CLI
-                    sh 'nvm use v16.13.0'
+                    sh '''
+                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                        [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+                        nvm install v16.13.0
+                        nvm use v16.13.0
+                    '''
                 }
             }
         }
