@@ -1,1 +1,24 @@
+pipeline {
 
+agent any {
+
+stages{
+stage ("git intigration"){
+
+
+steps{
+
+  git 'https://github.com/R807989/main-hrm.git'
+
+
+}
+}
+
+
+
+}
+
+
+
+}
+}
