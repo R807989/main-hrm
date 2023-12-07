@@ -13,6 +13,24 @@ steps{
 
 }
 }
+
+stage('Build') {
+            steps {
+ dir('hrms') {
+                script {
+                    // Install dependencies and build AngularJS project
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+}
+
+
+
+
+
+
 stage("build image") {
 steps{
 sh 'docker build -t hrms-frontend .'
