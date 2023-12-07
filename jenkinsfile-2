@@ -10,8 +10,8 @@ agent any
                 script {
                     sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
                     sh 'export NVM_DIR="$HOME/.nvm"'
-                    sh '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-                    sh '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
+                    sh '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"']
+                    sh '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"']
                     sh 'nvm install v16.13.0'  // Replace with the version required by Angular CLI
                     sh 'nvm use v16.13.0'
                 }
