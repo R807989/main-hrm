@@ -37,7 +37,14 @@ sh 'docker build -t hrms-frontend .'
 }
 
 
-
+stage("run HRMS image") {
+            steps {
+                script {
+                    // Replace 'your_script_to_run_hrms_image.sh' with the actual script or command
+                    sh 'docker run -d -p 4200:4200 hrms-frontend'
+                }
+            }
+        }
 
 
 }
