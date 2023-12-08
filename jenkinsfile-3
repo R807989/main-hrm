@@ -10,6 +10,21 @@ steps {
 
 }
 
+
+
+stage('Build') {
+            steps {
+ dir('hrms') {
+                script {
+                    // Install dependencies and build AngularJS project
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+}
+
+
 }
 
 
