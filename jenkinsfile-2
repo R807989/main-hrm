@@ -26,10 +26,12 @@ steps{
 
 stage("build") {
     steps {
-        sh 'ls -al /app'
+        sh 'ls -al'
+        sh 'ls -al /var/lib/jenkins/workspace/project/hrms'
         sh 'docker build -t hrms-frontend .'
     }
 }
+
 
 
 
