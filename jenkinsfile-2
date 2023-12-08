@@ -42,7 +42,8 @@ stage("build") {
 stage("deploy"){
 steps{
 
-sh "docker run -d -p 4200:4200   hrms-frontend"
+docker run -it --name hrms-container hrms-frontend /bin/bash
+
 
 }
 
