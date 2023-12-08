@@ -38,6 +38,23 @@ stage('Build Docker Image') {
 
 
 
+
+stage('Deploy Docker Container') {
+    steps {
+        script {
+            // Stop and remove the existing container (if any)
+            sh 'docker stop ravi-container || true'
+            sh 'docker rm ravi-container || true'
+
+            // Run the Docker container
+            sh 'docker run -d -p 4200:4200 --name ravi-container ravi'
+        }
+    }
+}
+
+
+
+
 }
 
 
