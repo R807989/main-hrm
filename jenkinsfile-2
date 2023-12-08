@@ -48,7 +48,14 @@ stage("Run Docker Container in Interactive Mode") {
     }
 }
 
-
+stage("Access Container Shell") {
+            steps {
+                script {
+                    // Run a shell inside the running container
+                    sh 'docker exec -it hrms-container /bin/bash'
+                }
+            }
+}
 
 
 }
