@@ -28,21 +28,11 @@ steps{
 
 
 
-stage("build image") {
-steps{
-sh 'docker build -t hrms-frontend1 .'
-
-  }
-
+}
 }
 
 
 
-
-
-}
-
-}
 
 
 
