@@ -24,6 +24,15 @@ steps{
 }
 }
 
+
+stage("Check npm version") {
+    steps {
+        sh 'npm --version'
+    }
+}
+
+
+
 stage("build") {
     steps {
         sh 'docker build -t hrms-frontend .'
@@ -31,12 +40,6 @@ stage("build") {
 }
 
 
-
-stage("Check npm version") {
-    steps {
-        sh 'npm --version'
-    }
-}
 
 
 
