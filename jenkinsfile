@@ -46,6 +46,21 @@ stage("build image") {
 
 }
 }
+
+
+ stage('Build Docker Image') {
+            steps {
+                dir('hrms') {
+                    script {
+                        def dockerImage = docker.build('hrms-main', '-f Dockerfile .')
+                        
+                    }
+                }
+            }
+        }
+
+
+
 }
 
 
