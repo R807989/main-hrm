@@ -24,7 +24,14 @@ steps{
 }
 }
 
+stage("build"){
 
+steps{
+
+
+
+
+ sh 'docker build -t hrms-frontend .'
 
 
 
@@ -34,5 +41,7 @@ steps{
 
 
 
+}
+}
 
 
