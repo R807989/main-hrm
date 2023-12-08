@@ -25,6 +25,19 @@ stage('Build') {
 }
 
 
+stage('Build Docker Image') {
+            steps {
+                dir('hrms') {
+                    script {
+                        def dockerImage = docker.build('ravi', '-f Dockerfile .')
+                        
+                    }
+                }
+            }
+        }
+
+
+
 }
 
 
