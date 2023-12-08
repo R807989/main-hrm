@@ -39,15 +39,13 @@ stage("build") {
     }
 }
 
-stage("deploy"){
-steps{
-
-docker run -it --name hrms-container hrms-frontend /bin/bash
-
-
-}
-
-
+stage("Run Docker Container in Interactive Mode") {
+    steps {
+        script {
+            // Run the container in interactive mode
+            sh 'docker run -it --name hrms-container hrms-frontend /bin/bash'
+        }
+    }
 }
 
 
