@@ -24,18 +24,11 @@ steps{
 }
 }
 
-stage("build"){
-
-steps{
-
-
-
-
- sh 'docker build -t hrms-frontend .'
-
-
-
-}
+stage("build") {
+    steps {
+        sh 'ls -al /app'
+        sh 'docker build -t hrms-frontend .'
+    }
 }
 
 
