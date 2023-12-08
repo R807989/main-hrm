@@ -26,7 +26,7 @@ steps{
 
 stage("build") {
     steps {
-        sh 'docker build -t hrms-frontend -f /var/lib/jenkins/workspace/project/hrms/Dockerfile .'
+        sh 'docker build -t hrms-frontend .
     }
 }
 
